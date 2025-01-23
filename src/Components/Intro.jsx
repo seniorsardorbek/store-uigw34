@@ -32,11 +32,8 @@ const Intro = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0">
-
-                        <Button>
-                            <Link>
-                            </Link>
-                        </Button>
+                        
+                        <Button>Read More</Button>
                     </CardFooter>
                 </Card>
             ))}
