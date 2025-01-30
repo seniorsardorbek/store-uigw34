@@ -5,10 +5,12 @@ import React, { useState } from 'react';
 import api from '../shared/axios.js';
 import Cookies from 'js-cookie';
 
-export default function Login() {
+export default function Register() {
     const [formData, setFormData] = useState({
+        fullname: '',
         username: '',
-        password: '',
+        username: '',
+        role: 'user',
     });
 
     const handleChange = (e) => {
@@ -22,11 +24,11 @@ export default function Login() {
     console.log(formData);
     const handleSubmit = (e) => {
         e.preventDefault();
-        api.post('/login', formData)
+        api.post('/register', formData)
             .then((res) => {
                 console.log(res.data);
             Cookies.set('passport', res.data?.token);
-            localStorage.setItem('user' , JSON.stringify(res.data?.user))
+            localStorage.setItem('user' , JSON.stringify(res.data?.data))
             window.location.href = '/';
             })
             .catch((err) => {
@@ -38,8 +40,22 @@ export default function Login() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-                <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-center">Register</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label htmlFor="fullname" className="block text-sm font-medium text-gray-700">
+                            Fullname
+                        </label>
+                        <input
+                            type="text"
+                            id="fullname"
+                            name="fullname"
+                            value={formData.fullname}
+                            onChange={handleChange}
+                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        />
+                    </div>
                     <div>
                         <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                             Username

@@ -6,6 +6,8 @@ import Blank from './layouts/Blank.jsx';
 import Intro from './Components/Intro.jsx';
 import React, { useEffect } from 'react';
 import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import ProductDetails from './pages/Product.jsx';
 const routes = [
     {
         path: '/',
@@ -16,6 +18,16 @@ const routes = [
         path: '/login',
         element: <Login />,
         target: 'blank',
+    },
+    {
+        path: '/register',
+        element: <Register />,
+        target: 'blank',
+    },
+    {
+        path: '/products/:id',
+        element: <ProductDetails />,
+        target: 'default',
     },
     
 ];
