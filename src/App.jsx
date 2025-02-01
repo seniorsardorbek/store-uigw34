@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetails from './pages/Product.jsx';
+import Orders from './pages/Orders.jsx';
 const routes = [
     {
         path: '/',
@@ -27,6 +28,11 @@ const routes = [
     {
         path: '/products/:id',
         element: <ProductDetails />,
+        target: 'default',
+    },
+    {
+        path: '/orders',
+        element: <Orders />,
         target: 'default',
     },
     

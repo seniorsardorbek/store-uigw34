@@ -26,7 +26,7 @@ export default function Login() {
             .then((res) => {
                 console.log(res.data);
             Cookies.set('passport', res.data?.token);
-            localStorage.setItem('user' , JSON.stringify(res.data?.user))
+            localStorage.setItem('user' , JSON.stringify(res.data?.data))
             window.location.href = '/';
             })
             .catch((err) => {
